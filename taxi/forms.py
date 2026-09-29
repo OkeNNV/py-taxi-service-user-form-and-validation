@@ -7,7 +7,8 @@ from .models import Driver, Car
 
 def validate_license_number(license_number):
     if len(license_number) != 8:
-        raise ValidationError("License number must consist of exactly 8 characters.")
+        raise ValidationError(
+            "License number must consist of exactly 8 characters.")
     if not license_number[:3].isupper() or not license_number[:3].isalpha():
         raise ValidationError("First 3 characters must be uppercase letters.")
     if not license_number[3:].isdigit():
